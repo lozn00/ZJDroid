@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "util.h"
 #include "elfinfo.h"
+#include "elfinfo.c"
 
 #define DEX_MAGIC       "dex\n"
 #define DEX_MAGIC_VERS  "036\0"

@@ -4,19 +4,33 @@ android {
     compileSdkVersion 22
     buildToolsVersion "25.0.2"
     //拦截编辑 因为找不到log类
-         sourceSets.main {
+/*         sourceSets.main {
         jni.srcDirs = []
         jniLibs.srcDir 'src/main/libs'
-    }
+    }*/
     defaultConfig {
         applicationId "com.android.reverse"
         minSdkVersion 15
         targetSdkVersion 15
 
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+//                cppFlags "-frtti -fexceptions"
+            }
+
+        }
         ndk {
             moduleName "dvmnative"
+            abiFilters 'armeabi-v7a'
         }
 
+        ndk {
+
+            //APP的build.gradle设置支持的SO库架构
+
+        }
     }
 
     buildTypes {
@@ -27,9 +41,14 @@ android {
     }
     sourceSets {
         main {
+            jni.srcDirs = ['src/main/jni']
             jniLibs.srcDirs = ['src/main/jniLibs']
         }
-
+    }
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
     }
 }
 

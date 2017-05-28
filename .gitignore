@@ -1,0 +1,12 @@
+build
+.gradle
+.idea
+gradle
+*.txt
+*.iml
+gradlew
+gradlew.bat
+/app/.externalNativeBuild
+/build
+/.gradle
+/*.iml
